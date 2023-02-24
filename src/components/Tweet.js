@@ -1,19 +1,13 @@
 import ProfileImage from './ProfileImage'
+import User from './User'
 
-function Tweet({tweet: {image}}) {
+function Tweet({tweet: {user, timestamp, message}}) {
   return (
     <div className="tweet">
-      <ProfileImage image={image} /> 
+      <ProfileImage image={user.image} /> 
 
       <div className="body">
-        <div className="top">
-          <span className="user">
-            <span className="name">{tweet.user.name}</span>
-            <span className="handle">@{tweet.user.handle}</span>
-          </span>
-
-          <span className="timestamp">{tweet.timestamps}</span>
-        </div>
+        <User user={user} timestamp={timestamp} />
 
         <p className="message">
           {tweet.message}
